@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 public class WeatherActivity extends AppCompatActivity {
 
@@ -12,27 +14,25 @@ public class WeatherActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_weather);
-//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-//            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-//            return insets;
-//        }
-        WeatherFragment secondFragment = new WeatherFragment();
-        getSupportFragmentManager().beginTransaction().add(
-                R.id.main, secondFragment).commit();
-        )
-//        Create a new Fragment to be placed in the activity layout
-        ForecastFragment firstFragment= new ForecastFragment();
-        //Add the fragment to the 'container' FrameLayout
-        getSupportFragmentManager().beginTransaction().add(
-                R.id.main, firstFragment).commit();
-        // container: "@+id/main"
 
-        Log.i(TAG, "Create the process: ");
+        if(savedInstanceState == null) {
+            setContentView(R.layout.activity_weather);
+
+            ForecastFragment forecastFragment = new ForecastFragment();
+            WeatherFragment weatherFragment = new WeatherFragment();
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+            transaction.add(R.id.ForecastFragment, forecastFragment);
+            transaction.add(R.id.WeatherFragment, weatherFragment);
+
+            transaction.commit();
+
+            Log.i(TAG, "Create the process: ");
+        }
     }
-    
+
+
+
     @Override
     public void onStart(){
         super.onStart();
