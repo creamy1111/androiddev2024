@@ -6,6 +6,9 @@ import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.tabs.TabLayout;
 
 public class WeatherActivity extends AppCompatActivity {
 
@@ -14,21 +17,19 @@ public class WeatherActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_weather);
 
-        if(savedInstanceState == null) {
-            setContentView(R.layout.activity_weather);
+        HomeFragmentPagerAdapter adapter = new HomeFragmentPagerAdapter(getSupportFragmentManager());
 
-            ForecastFragment forecastFragment = new ForecastFragment();
-            WeatherFragment weatherFragment = new WeatherFragment();
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
-            transaction.add(R.id.ForecastFragment, forecastFragment);
-            transaction.add(R.id.WeatherFragment, weatherFragment);
+        ViewPager pager = (ViewPager) findViewById(R.id.pager);
+        pager.setOffscreenPageLimit(3);
+        pager.setAdapter(adapter);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab);
+        tabLayout.setupWithViewPager(pager);
 
-            transaction.commit();
+        Log.i(TAG, "Create the process: ");
 
-            Log.i(TAG, "Create the process: ");
-        }
     }
 
 
