@@ -5,14 +5,15 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.PagerAdapter;
 
-public class HomeFragmentPagerAdapter extends PagerAdapter {
+public class HomeFragmentPagerAdapter extends FragmentPagerAdapter {
     private final int PAGE_COUNT = 3;
     private String titles[] = new String[]{"HANOI,VIETNAM", "PARIS,FRANCE", "TOULOUSE,FRANCE"};
 
     public HomeFragmentPagerAdapter(FragmentManager fm) {
-        super();
+        super(fm);
     }
 
     @Override
@@ -24,7 +25,7 @@ public class HomeFragmentPagerAdapter extends PagerAdapter {
     public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
         return false;
     }
-
+    @NonNull
     @Override
     public Fragment getItem(int page) {
         switch (page) {

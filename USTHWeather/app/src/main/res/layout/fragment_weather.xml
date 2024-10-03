@@ -14,7 +14,7 @@
         android:layout_width="360dp"
         android:layout_height="243dp"
         android:layout_centerHorizontal="true"
-        android:background="#B9E0BB"
+        android:background="@color/green"
         android:orientation="vertical">
 
         <ImageView
@@ -24,6 +24,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="1dp"
             android:layout_marginBottom="20dp"
+            android:contentDescription="TODO"
             android:src="@drawable/cloudy" />
 
         <TextView
@@ -31,8 +32,9 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:text="Paris"
-            android:textSize="20sp" />
+            android:text="@string/paris"
+            android:textSize="20sp"
+            tools:ignore="TextSizeCheck" />
 
         <TextView
             android:id="@+id/temperature"
