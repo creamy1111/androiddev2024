@@ -52,17 +52,17 @@
         android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-    <!--    <fragment-->
-    <!--        android:id="@+id/weatherFragment"-->
-    <!--        android:name="vn.edu.usth.weather.WeatherFragment"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="277dp" />-->
+        <fragment
+            android:id="@+id/weatherFragment"
+            android:name="vn.edu.usth.weather.WeatherFragment"
+            android:layout_width="match_parent"
+            android:layout_height="277dp" />
 
-    <!--    <fragment-->
-    <!--        android:id="@+id/forecastFragment"-->
-    <!--        android:name="vn.edu.usth.weather.ForecastFragment"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="513dp" />-->
+        <fragment
+            android:id="@+id/forecastFragment"
+            android:name="vn.edu.usth.weather.ForecastFragment"
+            android:layout_width="match_parent"
+            android:layout_height="513dp" />
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
